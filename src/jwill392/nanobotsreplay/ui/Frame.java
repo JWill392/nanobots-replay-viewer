@@ -21,10 +21,10 @@ public class Frame extends AbstractUIComponent {
 	private final Image beforeFrameDraw;
 	private final Image insideFrameDraw;
 
-	public Frame(Dimension drawSize, Vector2f drawPos) throws SlickException {
+	public Frame(Dimension drawSize, Vector2f drawPos, String theme) throws SlickException {
 		super(drawSize, drawPos);
 
-		Image frameTheme = Assets.getSheet("assets/spritesheet").getSprite("frame.gif");
+		Image frameTheme = Assets.getSheet("assets/spritesheet").getSprite(theme);
 		frameImg = ImgUtil.buildPanelImage(frameTheme, drawSize, 6, 6, 8, 8);
 
 		relFramedArea = new Rectangle(

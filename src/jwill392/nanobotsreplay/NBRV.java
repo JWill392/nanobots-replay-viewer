@@ -9,7 +9,7 @@ import java.util.List;
 import jwill392.nanobotsreplay.assets.Assets;
 import jwill392.nanobotsreplay.ui.AbstractUIComponent;
 import jwill392.nanobotsreplay.ui.Frame;
-//import jwill392.nanobotsreplay.ui.MinimapPanel;
+import jwill392.nanobotsreplay.ui.MinimapPanel;
 import jwill392.nanobotsreplay.ui.WorldInfoPanel;
 import jwill392.nanobotsreplay.world.WorldModel;
 import jwill392.nanobotsreplay.world.display.WorldView;
@@ -39,7 +39,8 @@ public class NBRV extends BasicGame {
 	private WorldView worldDisplay;
 	private WorldInfoPanel infoPanel;
 	private Frame worldFrame;
-	//private MinimapPanel minimapPanel;
+	private Frame minimapFrame;
+	private MinimapPanel minimapPanel;
 
 	private WorldModel worldModel;
 
@@ -77,7 +78,7 @@ public class NBRV extends BasicGame {
 
 		AbstractUIComponent.setRoot(SCREEN, container);
 
-		worldFrame = new Frame(new Dimension(980, 718), new Vector2f(1, 1));
+		worldFrame = new Frame(new Dimension(980, 718), new Vector2f(1, 1), "frame.gif");
 		AbstractUIComponent.getRoot().addChild(worldFrame);
 
 		worldDisplay = new WorldView(new Dimension(), new Vector2f());
@@ -89,9 +90,12 @@ public class NBRV extends BasicGame {
 		AbstractUIComponent.getRoot().addChild(infoPanel);
 		eventBus.register(infoPanel);
 
-		//minimapPanel = new MinimapPanel(new Dimension(298, 219), new Vector2f(982, 500));
-		//AbstractUIComponent.getRoot().addChild(minimapPanel);
-		//eventBus.register(minimapPanel);
+		minimapFrame = new Frame(new Dimension(298, 219), new Vector2f(982,500), "panel.png");
+		AbstractUIComponent.getRoot().addChild(minimapFrame);
+		
+		minimapPanel = new MinimapPanel(new Dimension(), new Vector2f());
+		minimapFrame.setContents(minimapPanel);
+		eventBus.register(minimapPanel);
 
 		//Tooltip testTip = new Tooltip(new Dimension(100, 20), new Vector2f(100, 100));
 		//AbstractUIComponent.getRoot().addChild(testTip);

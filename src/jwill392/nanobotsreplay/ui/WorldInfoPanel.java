@@ -92,7 +92,5 @@ public class WorldInfoPanel extends AbstractUIComponent{
 		if (e.selected == null) {
 			return;
 		}
-
-		System.out.println(selected.onTurn(turn));
 	}
 }

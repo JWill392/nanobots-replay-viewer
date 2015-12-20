@@ -255,6 +255,7 @@ public abstract class AbstractUIComponent implements Iterable<AbstractUIComponen
 	}
 	public void onBlur() {
 	}
+	// TODO - support dragging public void onDragged(int xStart, int yStart, int xCurrent, int yCurrent, int button) {}
 
 
 	@Override
@@ -329,6 +330,8 @@ public abstract class AbstractUIComponent implements Iterable<AbstractUIComponen
 	@Override
 	public void mouseDragged(int oldx, int oldy, int newx, int newy) {
 		mouseMoved(oldx, oldy, newx, newy);
+		
+		// TODO handle dragging - for minimap
 	}
 
 	// HERE BE DRAGONS

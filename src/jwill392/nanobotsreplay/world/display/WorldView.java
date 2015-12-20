@@ -8,7 +8,7 @@ import java.util.Iterator;
 import jwill392.nanobotsreplay.NBRV;
 import jwill392.nanobotsreplay.assets.Assets;
 import jwill392.nanobotsreplay.ui.AbstractUIComponent;
-//import jwill392.nanobotsreplay.ui.MinimapPanel.MinimapCellClicked;
+import jwill392.nanobotsreplay.ui.MinimapPanel.MinimapCellClicked;
 import jwill392.nanobotsreplay.util.ImgUtil;
 import jwill392.nanobotsreplay.world.EntityModel;
 import jwill392.nanobotsreplay.world.WorldModel;
@@ -165,16 +165,16 @@ public class WorldView extends AbstractUIComponent {
 		}
 	}
 
-	/*
-	 * TODO - rewrite lost Minimap class
 	@Subscribe
 	public void setViewArea(MinimapCellClicked e) {
 		viewOffset.set(
-				-((CELL_SIZE.width * e.cell.x) + CELL_PADDING.width - getAbsBounds().width/2),
-				-((CELL_SIZE.height * e.cell.y) + CELL_PADDING.height - getAbsBounds().height/2));
+				- teampg.util.Util.ensureRange((CELL_SIZE.width * e.cell.x) + CELL_PADDING.width 
+						- getAbsBounds().width/2, 0, getGridArea().width-getAbsBounds().width),
+				- teampg.util.Util.ensureRange((CELL_SIZE.height * e.cell.y) + CELL_PADDING.height 
+						- getAbsBounds().height/2, 0, getGridArea().height-getAbsBounds().height));
 		NBRV.eventBus.post(new ViewAreaChange(getWorldViewArea()));
 	}
-	*/
+	
 
 	@Override
 	public void onPressed(int x, int y, int button) {
